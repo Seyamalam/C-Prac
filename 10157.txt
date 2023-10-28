@@ -1,0 +1,16 @@
+#include <iostream>
+
+int main() {
+    int T1, T2, T3, T4;
+
+    // Read input values
+    std::cin >> T1 >> T2 >> T3 >> T4;
+
+    // Calculate the total cost
+    int totalCost = T1 + T2 + T3 + T4;
+
+    // Output the result
+    std::cout << totalCost << std::endl;
+
+    return 0;
+}

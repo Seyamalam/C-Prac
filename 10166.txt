@@ -1,0 +1,6 @@
+#include <iostream>
+
+int main() {
+    std::cout << "Ntraiay Niversityuay Rogrammingpay Ontestcay\n";
+    return 0;
+}
