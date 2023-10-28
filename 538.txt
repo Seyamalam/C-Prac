@@ -1,0 +1,22 @@
+#include <iostream>
+#include <cctype>
+#include <string>
+
+int main() {
+    int T;
+    std::cin >> T;
+    std::cin.ignore();  // To ignore the newline character after reading T
+
+    for(int i = 1; i <= T; ++i) {
+        std::string str;
+        getline(std::cin, str);
+
+        for(size_t j = 0; j < str.size(); ++j) {
+            str[j] = tolower(str[j]);
+        }
+
+        std::cout << "Case " << i << ": " << str << std::endl;
+    }
+
+    return 0;
+}

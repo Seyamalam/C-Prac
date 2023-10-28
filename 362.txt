@@ -1,0 +1,20 @@
+#include <iostream>
+#include <algorithm>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    float weights[5];
+    int caseNum = 1;
+    while(cin >> weights[0] >> weights[1] >> weights[2] >> weights[3] >> weights[4]) {
+        sort(weights, weights + 5);
+        if(weights[0] <= 0 || weights[4] <= 0) {
+            cout << "Case " << caseNum << ": Invalid" << endl;
+        } else {
+            cout << "Case " << caseNum << ": " << fixed << setprecision(2) << weights[2] << endl;
+        }
+        caseNum++;
+    }
+    return 0;
+}

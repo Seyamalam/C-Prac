@@ -1,0 +1,15 @@
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string command;
+    long long N1, N2;
+    while (std::cin >> command >> N1 >> N2) {
+        if (command == "ADD") {
+            std::cout << N1 + N2 << std::endl;
+        } else if (command == "MULT") {
+            std::cout << N1 * N2 << std::endl;
+        }
+    }
+    return 0;
+}

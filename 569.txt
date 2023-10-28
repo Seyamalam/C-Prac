@@ -1,0 +1,67 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+// Function to check if a string can be rearranged to form a palindrome
+bool isPossiblePalindrome(string s) {
+    int oddCount = 0;
+    int freq[26] = {0}; // Assuming input contains only lowercase letters
+    for (int i = 0; i < s.length(); i++) {
+        freq[s[i] - 'a']++;
+    }
+    for (int i = 0; i < 26; i++) {
+        if (freq[i] % 2 == 1) {
+            oddCount++;
+            if (oddCount > 1) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+int main() {
+    string s;
+    int caseNum = 1;
+
+    while (cin >> s) {
+        string sortedString = s;
+        sort(sortedString.begin(), sortedString.end());
+
+        cout << "Case #" << caseNum << ": ";
+
+        if (isPossiblePalindrome(sortedString)) {
+            string palindrome;
+            string centerChar;
+
+            int freq[26] = {0}; // Assuming input contains only lowercase letters
+            for (int i = 0; i < sortedString.length(); i++) {
+                freq[sortedString[i] - 'a']++;
+            }
+
+            for (int i = 0; i < 26; i++) {
+                if (freq[i] % 2 == 1) {
+                    centerChar = (char)('a' + i);
+                }
+                freq[i] /= 2;
+                while (freq[i] > 0) {
+                    palindrome += (char)('a' + i);
+                    freq[i]--;
+                }
+            }
+
+            string reversed = palindrome;
+            reverse(reversed.begin(), reversed.end());
+
+            cout << palindrome << centerChar << reversed;
+        } else {
+            cout << "No Such Palindrome";
+        }
+
+        cout << endl;
+        caseNum++;
+    }
+
+    return 0;
+}

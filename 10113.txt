@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+
+    for (int t = 1; t <= T; t++) {
+        int N;
+        cin >> N;
+        vector<int> ropes(N);
+
+        for (int i = 0; i < N; i++) {
+            cin >> ropes[i];
+        }
+
+        priority_queue<int, vector<int>, greater<int> > minHeap;
+
+        for (int i = 0; i < N; i++) {
+            minHeap.push(ropes[i]);
+        }
+
+        int cost = 0;
+
+        while (minHeap.size() > 1) {
+            int first = minHeap.top();
+            minHeap.pop();
+            int second = minHeap.top();
+            minHeap.pop();
+
+            int newRope = first + second;
+            cost += newRope;
+            minHeap.push(newRope);
+        }
+
+        cout << "Case " << t << ": Cost=" << cost << endl;
+    }
+
+    return 0;
+}

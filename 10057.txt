@@ -1,0 +1,23 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+int main() {
+    std::string command;
+    long long N1, N2;
+    while (std::cin >> command >> N1 >> command >> N2) {
+        if (command == "from") {
+            std::cout << N2 - N1 << std::endl;
+        } else if (command == "by") {
+            if (N1 == 0 && N2 == 0) {
+                std::cout << "Error!!!" << std::endl;
+            } else if (N2 == 0) {
+                std::cout << "Error!" << std::endl;
+            } else {
+                double result = (double)N1 / N2;
+                std::cout << std::fixed << std::setprecision(2) << result << std::endl;
+            }
+        }
+    }
+    return 0;
+}

@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    for(int i = 1; i <= T; i++) {
+        int A, B, C, D, E;
+        cin >> A >> B >> C >> D >> E;
+        if(A == 7 || B == 7 || C == 7 || D == 7 || E == 7) {
+            cout << "Case " << i << ": Wow! Lucky 7 found" << endl;
+        } else {
+            cout << "Case " << i << ": Oops, not found" << endl;
+        }
+    }
+    return 0;
+}

@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Function to find the longest prefix substring which is also a suffix substring
+string findLongestPrefixSuffix(const string& s) {
+    int n = s.length();
+    int len = 0;  // Length of the longest prefix which is a suffix
+    int i = 1;
+
+    while (i < n) {
+        if (s[i] == s[len]) {
+            len++;
+            i++;
+        } else {
+            if (len == 0) {
+                i++;
+            } else {
+                len = 0;
+            }
+        }
+    }
+
+    string result = s.substr(0, len);
+
+    if (result.empty()) {
+        return "Fix";
+    } else {
+        return result;
+    }
+}
+
+int main() {
+    string s;
+    while (cin >> s) {
+        string result = findLongestPrefixSuffix(s);
+        cout << result << endl;
+    }
+    return 0;
+}

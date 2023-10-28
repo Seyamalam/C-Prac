@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Function to count the occurrences of a prime number M in the prime factorization of N!
+int countPrimeFactor(int N, int M) {
+    int count = 0;
+
+    // Count how many times M divides N!
+    while (N > 0) {
+        N /= M;
+        count += N;
+    }
+
+    return count;
+}
+
+int main() {
+    int N, M;
+
+    while (cin >> N >> M) {
+        if (N == 0 && M == 0)
+            break;
+
+        int result = countPrimeFactor(N, M);
+
+        if (result > 0)
+            cout << result << endl;
+        else
+            cout << "NULL" << endl;
+    }
+
+    return 0;
+}

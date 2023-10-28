@@ -1,0 +1,70 @@
+#include <iostream>
+#include <queue>
+#include <vector>
+
+using namespace std;
+
+#define MAX 30
+#define INF (int)1e9
+
+struct cell {
+    int x, y, dist;
+};
+
+bool isValid(int x, int y, int N) {
+    if (x < 0 || y < 0 || x >= N || y >= N)
+        return false;
+    return true;
+}
+
+int dx[] = {-1, 0, 1, 0};
+int dy[] = {0, 1, 0, -1};
+
+int BFS(vector<vector<char> > &forest, cell src, cell dest, int N) {
+    vector<vector<int> > dist(N, vector<int>(N, INF));
+    dist[src.x][src.y] = 0;
+
+    queue<cell> q;
+    q.push(src);
+
+    while (!q.empty()) {
+        cell curr = q.front();
+        q.pop();
+
+        if (curr.x == dest.x && curr.y == dest.y)
+            return dist[curr.x][curr.y];
+
+        for (int i = 0; i < 4; i++) {
+            int newX = curr.x + dx[i], newY = curr.y + dy[i];
+
+            if (isValid(newX, newY, N) && forest[newX][newY] != 'T' && dist[newX][newY] == INF) {
+                dist[newX][newY] = dist[curr.x][curr.y] + 1;
+                q.push((cell){newX, newY});
+            }
+        }
+    }
+
+    return -1;
+}
+
+int main() {
+    int N;
+    while (cin >> N) {
+        vector<vector<char> > forest(N, vector<char>(N));
+        cell src, dest;
+
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                cin >> forest[i][j];
+                if (forest[i][j] == 'S')
+                    src = (cell){i, j};
+                else if (forest[i][j] == 'E')
+                    dest = (cell){i, j};
+            }
+        }
+
+        cout << BFS(forest, src, dest, N) << endl;
+    }
+
+    return 0;
+}

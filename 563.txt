@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    for(int i = 1; i <= T; i++) {
+        int M;
+        cin >> M;
+        int days = M / (60 * 24);
+        M %= (60 * 24);
+        int hours = M / 60;
+        M %= 60;
+        int minutes = M;
+        cout << "Case " << i << ": " << days << " Days " << hours << " Hours " << minutes << " Minutes" << endl;
+    }
+    return 0;
+}

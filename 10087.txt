@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    for(int i = 1; i <= T; i++) {
+        bool unluckyFound = false;
+        for(int j = 0; j < 5; j++) {
+            int num;
+            cin >> num;
+            if(num == 13) {
+                unluckyFound = true;
+            }
+        }
+        if(unluckyFound) {
+            cout << "Case " << i << ": Oops, unlucky 13 found" << endl;
+        } else {
+            cout << "Case " << i << ": Wow! Not found" << endl;
+        }
+    }
+    return 0;
+}

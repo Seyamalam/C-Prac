@@ -1,0 +1,23 @@
+#include <iostream>
+#include <sstream>
+
+bool containsThree(int n) {
+    std::stringstream ss;
+    ss << n;
+    std::string str = ss.str();
+    return (str.find('3') != std::string::npos);
+}
+
+int main() {
+    int N;
+    while (std::cin >> N) {
+        int count = 0;
+        for (int i = 1; i <= N; i++) {
+            if (!containsThree(i)) {
+                count++;
+            }
+        }
+        std::cout << count << std::endl;
+    }
+    return 0;
+}

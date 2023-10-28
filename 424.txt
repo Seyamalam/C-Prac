@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+
+int main() {
+    std::string time;
+    while (std::getline(std::cin, time)) {
+        std::istringstream ss(time);
+        int hours, minutes;
+        char colon;
+        ss >> hours >> colon >> minutes;
+
+        if (hours > 0) {
+            std::cout << hours << " Hour";
+            if (hours > 1) std::cout << "s";
+            if (minutes > 0) std::cout << " ";
+        }
+        if (minutes > 0) {
+            std::cout << minutes << " Minute";
+            if (minutes > 1) std::cout << "s";
+        }
+        std::cout << std::endl;
+    }
+    return 0;
+}

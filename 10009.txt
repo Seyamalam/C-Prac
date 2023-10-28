@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N, D, K;
+    while(cin >> N >> D >> K) {
+        int fare = max(50, N * D + K * 60);
+        cout << fare << " taka" << endl;
+    }
+    return 0;
+}

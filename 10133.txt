@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    for(int t = 1; t <= T; t++) {
+        long long N;
+        cin >> N;
+        int count = 0;
+        for(long long i = 1; i * i <= N; i++) {
+            if(N % i == 0) {
+                count++;
+                if(i != N / i) {
+                    count++;
+                }
+            }
+        }
+        cout << "Case " << t << "# " << count - 1 << endl;
+    }
+    return 0;
+}

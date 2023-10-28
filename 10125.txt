@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    while(cin >> N) {
+        int magic_number = N * (N*N + 1) / 2;
+        cout << magic_number << endl;
+    }
+    return 0;
+}

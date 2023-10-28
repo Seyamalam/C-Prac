@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    int N;
+    std::cin >> N;
+
+    std::vector<int> P(N), M(N);
+    for (int i = 0; i < N; ++i) {
+        std::cin >> P[i] >> M[i];
+    }
+
+    int sumP = 0, sumM = 0;
+    for (int i = 0; i < N; ++i) {
+        sumP += P[i];
+        sumM += M[i];
+
+        std::cout << "Measurement " << i+1 << ": ";
+        if (sumP > sumM) {
+            std::cout << "P ahead by " << sumP - sumM;
+        } else if (sumM > sumP) {
+            std::cout << "M ahead by " << sumM - sumP;
+        } else {
+            std::cout << "Even";
+        }
+        std::cout << std::endl;
+    }
+
+    return 0;
+}

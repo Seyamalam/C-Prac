@@ -1,0 +1,18 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    int t;
+    while(cin >> t && t != 0) {
+        for(int i = 0; i < t; i++) {
+            double R, B;
+            cin >> R >> B;
+            double balls = (int(B) * 6) + (B - int(B)) * 10;
+            double economyRate = (balls != 0) ? R / balls * 6 : 0;
+            cout << fixed << setprecision(2) << economyRate << endl;
+        }
+        cout << endl;
+    }
+    return 0;
+}

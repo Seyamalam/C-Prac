@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+
+int main() {
+    int T;
+    std::cin >> T;
+    for(int i = 0; i < T; i++) {
+        std::string a, b;
+        std::cin >> a >> b;
+        if(a.size() > b.size()) {
+            std::cout << "a is bigger than b" << std::endl;
+        } else if(a.size() < b.size()) {
+            std::cout << "b is bigger than a" << std::endl;
+        } else {
+            if(a > b) {
+                std::cout << "a is bigger than b" << std::endl;
+            } else if(a < b) {
+                std::cout << "b is bigger than a" << std::endl;
+            } else {
+                std::cout << "They are equal" << std::endl;
+            }
+        }
+    }
+    return 0;
+}

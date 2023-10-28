@@ -1,0 +1,23 @@
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+map<long long, long long> dp;
+
+long long solve(long long n) {
+    if(n == 1 || n == 2) return n;
+    if(dp[n] != 0) return dp[n];
+    return dp[n] = solve(n/2) + solve(n/3);
+}
+
+int main() {
+    int T;
+    cin >> T;
+    while(T--) {
+        long long N;
+        cin >> N;
+        cout << solve(N) << endl;
+    }
+    return 0;
+}

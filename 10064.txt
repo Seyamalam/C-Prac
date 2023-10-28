@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+
+using namespace std;
+
+bool isPalindrome(string str) {
+    string rev = str;
+    reverse(rev.begin(), rev.end());
+    return (str == rev);
+}
+
+string toBinary(long long n) {
+    string r;
+    while(n!=0) {r=(n%2==0 ?"0":"1")+r; n/=2;}
+    return r;
+}
+
+int main() {
+    long long n;
+    int caseNum = 1;
+    while(cin >> n) {
+        string decimal = static_cast<ostringstream*>( &(ostringstream() << n) )->str();
+        string binary = toBinary(n);
+        cout << "Case " << caseNum++ << "#" << endl;
+        if(isPalindrome(decimal) && isPalindrome(binary))
+            cout << "Super Palindromic Number." << endl;
+        else if(isPalindrome(decimal))
+            cout << "Palindromic Number." << endl;
+        else
+            cout << "Not Palindromic Number." << endl;
+    }
+    return 0;
+}

@@ -1,0 +1,28 @@
+#include <iostream>
+#include <bitset>
+#include <string>
+
+int main() {
+    int T;
+    std::cin >> T;
+    while(T--) {
+        int N;
+        std::cin >> N;
+        std::bitset<32> binary(N);
+        std::string encrypted = binary.to_string();
+        for(int i = 0; i < encrypted.length(); i++) {
+            if(encrypted[i] == '0') {
+                encrypted[i] = '#';
+            } else if(encrypted[i] == '1') {
+                encrypted[i] = '*';
+            }
+        }
+        // Remove leading '#' characters
+        size_t first_star = encrypted.find('*');
+        if(first_star != std::string::npos) {
+            encrypted = encrypted.substr(first_star);
+        }
+        std::cout << encrypted << std::endl;
+    }
+    return 0;
+}

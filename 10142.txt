@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long N;
+    while(cin >> N && N != 0) {
+        long long M = N * (N + 1) / 2;
+        if(M % 2 == 0)
+            cout << "Even" << endl;
+        else
+            cout << "Odd" << endl;
+    }
+    return 0;
+}

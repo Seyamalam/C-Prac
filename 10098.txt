@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    while(T--) {
+        int N;
+        cin >> N;
+        long long squares = 0, rectangles = 0;
+        for(int i = 1; i <= N; i++) {
+            squares += i*i;
+            rectangles += i*i*i;
+        }
+        rectangles -= squares;
+        cout << squares << " " << rectangles << endl;
+    }
+    return 0;
+}

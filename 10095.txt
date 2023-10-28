@@ -1,0 +1,47 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+vector<pair<long long, int> > primeFactorization(long long N) {
+    vector<pair<long long, int> > factors;
+    for (long long i = 2; i * i <= N; i++) {
+        int count = 0;
+        while (N % i == 0) {
+            N /= i;
+            count++;
+        }
+        if (count > 0) {
+            factors.push_back(make_pair(i, count));
+        }
+    }
+    if (N > 1) {
+        factors.push_back(make_pair(N, 1));
+    }
+    return factors;
+}
+
+long long countDivisors(long long N) {
+    vector<pair<long long, int> > factors = primeFactorization(N);
+    long long count = 1;
+    for (size_t i = 0; i < factors.size(); i++) {
+        count *= (factors[i].second + 1);
+    }
+    return count;
+}
+
+int main() {
+    int T;
+    cin >> T;
+
+    for (int i = 1; i <= T; i++) {
+        long long N;
+        cin >> N;
+
+        long long divisors = countDivisors(N);
+
+        cout << "Case " << i << ": " << divisors << endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,19 @@
+#include <iostream>
+
+int main() {
+    int T;
+    std::cin >> T;
+
+    while (T--) {
+        int N1, N2;
+        std::cin >> N1 >> N2;
+
+        int clockwise_rotation = (N2 - N1 + 40) % 40; // Clockwise rotation
+        int anticlockwise_rotation = (N1 - N2 + 40) % 40; // Anti-clockwise rotation
+
+        int min_rotation = std::min(clockwise_rotation, anticlockwise_rotation);
+        std::cout << min_rotation * 9 << std::endl; // Each degree corresponds to 9 degrees on a clock
+
+    }
+    return 0;
+}
